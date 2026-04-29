@@ -1,0 +1,1191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AOO MEDTECH LLC | Dr. Alejandro Ortiz Obregón, M.D.</title>
+    <link href="https://fonts.googleapis.com/css2?family=Avenir:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* CSS Variables - Branding */
+        :root {
+            --carbon: #141414;
+            --ivory: #F5F0E8;
+            --copper: #D97A43;
+            --blue-criterion: #24495A;
+            --green-mineral: #556B5D;
+            --plum-smoke: #625468;
+            --gray-mist: #D8D8D2;
+            --white-clean: #FFFFFF;
+            
+            --font-primary: 'Avenir', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            --font-serif: 'Georgia', serif;
+        }
+
+        body {
+            font-family: var(--font-primary);
+            color: var(--carbon);
+            background-color: var(--ivory);
+            line-height: 1.6;
+            letter-spacing: 0.3px;
+        }
+
+        /* ===== HEADER & NAVIGATION ===== */
+        header {
+            background: var(--white-clean);
+            padding: 1.5rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid var(--gray-mist);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 8px rgba(20, 20, 20, 0.05);
+        }
+
+        .logo {
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: var(--carbon);
+            letter-spacing: 1px;
+        }
+
+        .language-toggle {
+            display: flex;
+            gap: 0.8rem;
+            align-items: center;
+        }
+
+        .lang-btn {
+            padding: 0.5rem 1rem;
+            border: none;
+            background: var(--gray-mist);
+            color: var(--carbon);
+            cursor: pointer;
+            font-family: var(--font-primary);
+            font-size: 0.85rem;
+            font-weight: 600;
+            border-radius: 3px;
+            transition: all 0.3s ease;
+        }
+
+        .lang-btn.active {
+            background: var(--copper);
+            color: var(--white-clean);
+        }
+
+        .lang-btn:hover {
+            opacity: 0.8;
+        }
+
+        /* ===== HERO SECTION ===== */
+        .hero {
+            background: linear-gradient(135deg, var(--carbon) 0%, var(--blue-criterion) 100%);
+            color: var(--white-clean);
+            padding: 6rem 2rem;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 400px;
+            height: 400px;
+            background: rgba(217, 122, 67, 0.1);
+            border-radius: 50%;
+            opacity: 0.5;
+        }
+
+        .hero-content {
+            max-width: 900px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero-logo {
+            width: 182px;
+            height: 182px;
+            margin: 0 auto 2rem;
+            object-fit: contain;
+            filter: drop-shadow(0 10px 30px rgba(0, 0, 0, 0.3));
+        }
+
+        .hero h1 {
+            font-size: 2.8rem;
+            margin-bottom: 1rem;
+            font-weight: 700;
+            line-height: 1.2;
+        }
+
+        .hero .subtitle {
+            font-size: 1.3rem;
+            margin-bottom: 2rem;
+            color: var(--copper);
+            font-weight: 500;
+            letter-spacing: 0.5px;
+        }
+
+        .hero p {
+            font-size: 1.1rem;
+            margin-bottom: 2.5rem;
+            line-height: 1.8;
+            color: rgba(255, 255, 255, 0.9);
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .cta-primary {
+            display: inline-block;
+            padding: 1rem 2.5rem;
+            background: var(--copper);
+            color: var(--white-clean);
+            text-decoration: none;
+            font-weight: 600;
+            border-radius: 3px;
+            transition: all 0.3s ease;
+            border: 2px solid var(--copper);
+        }
+
+        .cta-primary:hover {
+            background: transparent;
+            color: var(--copper);
+        }
+
+        /* ===== SECTIONS ===== */
+        section {
+            padding: 5rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        section h2 {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+            color: var(--carbon);
+            font-weight: 700;
+        }
+
+        section .section-intro {
+            font-size: 1.1rem;
+            color: var(--blue-criterion);
+            margin-bottom: 2.5rem;
+            line-height: 1.8;
+            max-width: 750px;
+        }
+
+        /* ===== ESSENCE SECTION ===== */
+        .essence {
+            background: var(--white-clean);
+            border-top: 1px solid var(--gray-mist);
+            border-bottom: 1px solid var(--gray-mist);
+        }
+
+        .essence-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .essence-item {
+            padding: 2rem;
+            background: var(--ivory);
+            border-left: 4px solid var(--copper);
+            border-radius: 2px;
+        }
+
+        .essence-item h3 {
+            font-size: 1.1rem;
+            color: var(--blue-criterion);
+            margin-bottom: 0.8rem;
+            font-weight: 600;
+        }
+
+        .essence-item p {
+            color: var(--carbon);
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+
+        /* ===== PRACTICE AREAS ===== */
+        .practice-areas {
+            background: var(--white-clean);
+        }
+
+        .areas-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2.5rem;
+            margin-top: 2rem;
+        }
+
+        .area-card {
+            padding: 2.5rem;
+            background: linear-gradient(135deg, rgba(245, 240, 232, 0.5) 0%, rgba(217, 122, 67, 0.05) 100%);
+            border: 1px solid var(--gray-mist);
+            border-radius: 4px;
+            transition: all 0.3s ease;
+        }
+
+        .area-card:hover {
+            border-color: var(--copper);
+            box-shadow: 0 8px 20px rgba(217, 122, 67, 0.1);
+        }
+
+        .area-card h3 {
+            font-size: 1.15rem;
+            color: var(--blue-criterion);
+            margin-bottom: 1rem;
+            font-weight: 600;
+        }
+
+        .area-card p {
+            color: var(--carbon);
+            font-size: 0.95rem;
+            line-height: 1.7;
+        }
+
+        /* ===== ECOSYSTEM SECTION ===== */
+        .ecosystem {
+            background: linear-gradient(180deg, var(--white-clean) 0%, var(--ivory) 100%);
+        }
+
+        .ecosystem-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2.5rem;
+            margin-top: 3rem;
+        }
+
+        .ecosystem-card {
+            background: var(--white-clean);
+            border: 2px solid var(--gray-mist);
+            border-radius: 4px;
+            padding: 2.5rem;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        .ecosystem-card:hover {
+            border-color: var(--copper);
+            box-shadow: 0 12px 30px rgba(20, 20, 20, 0.1);
+            transform: translateY(-4px);
+        }
+
+        .ecosystem-symbol {
+            width: 80px;
+            height: 80px;
+            margin: 0 auto 1.5rem;
+            border: 3px solid var(--copper);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            background: var(--ivory);
+        }
+
+        .ecosystem-card h3 {
+            font-size: 1.3rem;
+            color: var(--carbon);
+            margin-bottom: 0.8rem;
+            font-weight: 700;
+        }
+
+        .ecosystem-card .descriptor {
+            font-size: 0.9rem;
+            color: var(--copper);
+            margin-bottom: 1.2rem;
+            font-weight: 500;
+            letter-spacing: 0.5px;
+        }
+
+        .ecosystem-card p {
+            color: var(--carbon);
+            font-size: 0.95rem;
+            line-height: 1.6;
+            margin-bottom: 1.5rem;
+        }
+
+        .cta-secondary {
+            display: inline-block;
+            padding: 0.75rem 1.8rem;
+            background: var(--blue-criterion);
+            color: var(--white-clean);
+            text-decoration: none;
+            font-weight: 600;
+            border-radius: 3px;
+            transition: all 0.3s ease;
+            font-size: 0.9rem;
+        }
+
+        .cta-secondary:hover {
+            background: var(--copper);
+        }
+
+        /* ===== CREDIBILITY SECTION ===== */
+        .credibility {
+            background: var(--white-clean);
+            border-top: 1px solid var(--gray-mist);
+        }
+
+        .credential {
+            padding: 1.5rem;
+            border-left: 4px solid var(--blue-criterion);
+            margin-bottom: 2rem;
+            background: var(--ivory);
+            border-radius: 2px;
+        }
+
+        .credential h3 {
+            color: var(--blue-criterion);
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+        }
+
+        .credential p {
+            color: var(--carbon);
+            font-size: 0.95rem;
+        }
+
+        /* ===== CONTACT SECTION ===== */
+        .contact {
+            background: var(--carbon);
+            color: var(--white-clean);
+            text-align: center;
+        }
+
+        .contact h2 {
+            color: var(--white-clean);
+            margin-bottom: 1.5rem;
+        }
+
+        .contact-content {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .contact-info {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            margin: 2.5rem 0;
+        }
+
+        .contact-item h3 {
+            color: var(--copper);
+            margin-bottom: 0.8rem;
+            font-weight: 600;
+        }
+
+        .contact-item p {
+            color: rgba(255, 255, 255, 0.85);
+            font-size: 0.95rem;
+        }
+
+        .contact-item a {
+            color: var(--copper);
+            text-decoration: none;
+            transition: opacity 0.3s ease;
+        }
+
+        .contact-item a:hover {
+            opacity: 0.8;
+        }
+
+        /* ===== FOOTER ===== */
+        footer {
+            background: #0a0a0a;
+            color: var(--gray-mist);
+            padding: 2rem;
+            text-align: center;
+            font-size: 0.85rem;
+            border-top: 1px solid var(--carbon);
+        }
+
+        footer a {
+            color: var(--copper);
+            text-decoration: none;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
+
+        /* ===== MODAL STYLES ===== */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 2000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(20, 20, 20, 0.85);
+            animation: fadeIn 0.3s ease;
+        }
+
+        .modal.show {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .modal-content {
+            background-color: var(--white-clean);
+            padding: 3rem;
+            border-radius: 4px;
+            max-width: 700px;
+            max-height: 80vh;
+            overflow-y: auto;
+            position: relative;
+            width: 90%;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+        }
+
+        .modal-close {
+            position: absolute;
+            top: 1.5rem;
+            right: 1.5rem;
+            font-size: 2rem;
+            font-weight: bold;
+            color: var(--carbon);
+            cursor: pointer;
+            border: none;
+            background: none;
+            padding: 0;
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            transition: all 0.3s ease;
+        }
+
+        .modal-close:hover {
+            background-color: var(--ivory);
+            color: var(--copper);
+        }
+
+        .modal-title {
+            font-size: 1.8rem;
+            color: var(--carbon);
+            margin-bottom: 1.5rem;
+            font-weight: 700;
+            padding-right: 40px;
+        }
+
+        .modal-subtitle {
+            font-size: 1.1rem;
+            color: var(--copper);
+            margin-bottom: 1.5rem;
+            font-weight: 500;
+            letter-spacing: 0.5px;
+        }
+
+        .modal-text {
+            color: var(--carbon);
+            line-height: 1.8;
+            font-size: 0.95rem;
+        }
+
+        .modal-text p {
+            margin-bottom: 1.2rem;
+        }
+
+        .modal-text h3 {
+            font-size: 1.1rem;
+            color: var(--blue-criterion);
+            margin-top: 1.5rem;
+            margin-bottom: 0.8rem;
+            font-weight: 600;
+        }
+
+        /* ===== HIDDEN CONTENT (Language Toggle) ===== */
+        .hidden {
+            display: none;
+        }
+
+        /* ===== RESPONSIVE ===== */
+        @media (max-width: 768px) {
+            header {
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .hero p {
+                font-size: 1rem;
+            }
+
+            section {
+                padding: 3rem 1.5rem;
+            }
+
+            section h2 {
+                font-size: 1.6rem;
+            }
+
+            .essence-grid,
+            .areas-grid,
+            .ecosystem-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .contact-info {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* ===== SMOOTH TRANSITIONS ===== */
+        .fade-in {
+            animation: fadeIn 0.6s ease-in;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- ===== HEADER ===== -->
+    <header>
+        <div class="logo">AOO MEDTECH LLC</div>
+        <div class="language-toggle">
+            <button class="lang-btn active" data-lang="en" onclick="setLanguage('en')">EN</button>
+            <button class="lang-btn" data-lang="es" onclick="setLanguage('es')">ES</button>
+        </div>
+    </header>
+
+    <!-- ===== HERO SECTION ===== -->
+    <section class="hero">
+        <div class="hero-content">
+            <img src="/img/logo_sin_fondo.svg" alt="AOO MEDTECH LLC" class="hero-logo">
+            
+            <!-- English Content -->
+            <div id="hero-en" class="lang-content">
+                <p class="subtitle">Intelligent Healthcare Technology & Applied Innovation</p>
+                <p>Extensive clinical expertise becomes the foundation for intelligent systems. We build technology that amplifies clinical judgment, scales expertise, and transforms healthcare delivery—from individual patients to healthcare enterprises—through data-driven innovation and human-centered AI.</p>
+                <a href="#ecosystem" class="cta-primary">Explore the Ecosystem</a>
+            </div>
+
+            <!-- Spanish Content -->
+            <div id="hero-es" class="lang-content hidden">
+                <p class="subtitle">Tecnología Healthcare Inteligente e Innovación Aplicada</p>
+                <p>La experiencia clínica es la base para el desarrollo de sistemas inteligentes aplicados. Construimos tecnología que amplifica el criterio clínico, escala la experiencia y transforma la gestión sanitaria—desde pacientes individuales hasta empresas de salud—a través de innovación basada en datos e IA centrada con criterio humano.</p>
+                <a href="#ecosystem" class="cta-primary">Explorar el Ecosistema</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== ESSENCE SECTION ===== -->
+    <section class="essence">
+        <!-- English Content -->
+        <div id="essence-en" class="lang-content">
+            <h2>How We Work</h2>
+            <p class="section-intro">Clinical expertise guides technology development. We create intelligent systems designed for different stakeholders—from individual patients to hospital networks—with coherent architecture and measurable impact.</p>
+            
+            <div class="essence-grid">
+                <div class="essence-item">
+                    <h3>Clinical Foundation</h3>
+                    <p>Extensive medical experience in complex healthcare domains informs every system. Technology that serves real clinical needs, not technology for its own sake.</p>
+                </div>
+                <div class="essence-item">
+                    <h3>Intelligent Systems</h3>
+                    <p>We develop hybrid human-AI platforms that augment clinical judgment. Data integration, pattern recognition, and decision support built for precision and reliability.</p>
+                </div>
+                <div class="essence-item">
+                    <h3>Scalable Architecture</h3>
+                    <p>From individual users to healthcare enterprises. Systems designed to scale without losing accuracy, clinical safety, or usability at any level.</p>
+                </div>
+                <div class="essence-item">
+                    <h3>Data-Driven Evidence</h3>
+                    <p>Rigorous collection, analysis, and application of clinical data. Insights that drive both individual patient outcomes and systemic improvement.</p>
+                </div>
+                <div class="essence-item">
+                    <h3>Commercial Viability</h3>
+                    <p>Technology built for real adoption. Integration pathways, training support, and business models aligned with healthcare delivery realities.</p>
+                </div>
+                <div class="essence-item">
+                    <h3>Continuous Evolution</h3>
+                    <p>Healthcare science advances constantly. Our platforms integrate new evidence, adapt to emerging clinical needs, and anticipate future requirements.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Spanish Content -->
+        <div id="essence-es" class="lang-content hidden">
+            <h2>Cómo Trabajamos</h2>
+            <p class="section-intro">La experiencia clínica guía el desarrollo tecnológico. Creamos sistemas inteligentes diseñados para diferentes actores—desde pacientes individuales hasta redes hospitalarias o programas de salud estatales—con arquitectura coherente e impacto medible.</p>
+            
+            <div class="essence-grid">
+                <div class="essence-item">
+                    <h3>Fundación Clínica</h3>
+                    <p>Experiencia médica extensa en dominios complejos de salud informa cada sistema. Tecnología que sirve necesidades clínicas reales, no tecnología por sí sola.</p>
+                </div>
+                <div class="essence-item">
+                    <h3>Sistemas Inteligentes</h3>
+                    <p>Desarrollamos plataformas híbridas humano-IA que amplifican el criterio clínico. Integración de datos, reconocimiento de patrones y soporte de decisiones construidos para precisión.</p>
+                </div>
+                <div class="essence-item">
+                    <h3>Arquitectura Escalable</h3>
+                    <p>Desde usuarios individuales a empresas de salud. Sistemas diseñados para escalar sin perder precisión, seguridad clínica o usabilidad en ningún nivel.</p>
+                </div>
+                <div class="essence-item">
+                    <h3>Evidencia Basada en Datos</h3>
+                    <p>Recopilación rigurosa, análisis y aplicación de datos clínicos. Insights que impulsan tanto resultados de pacientes individuales como mejora sistémica.</p>
+                </div>
+                <div class="essence-item">
+                    <h3>Viabilidad Comercial</h3>
+                    <p>Tecnología construida para adopción real. Rutas de integración, apoyo en capacitación y modelos de negocio alineados con realidades de entrega sanitaria.</p>
+                </div>
+                <div class="essence-item">
+                    <h3>Evolución Continua</h3>
+                    <p>La ciencia sanitaria avanza constantemente. Nuestras plataformas integran nueva evidencia, se adaptan a necesidades clínicas emergentes y anticipan requerimientos futuros.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== PRACTICE AREAS ===== -->
+    <section class="practice-areas">
+        <!-- English Content -->
+        <div id="practice-en" class="lang-content">
+            <h2>What We Build</h2>
+            <p class="section-intro">Intelligent healthcare technology designed for real-world adoption. From individual users to enterprise healthcare systems, platforms that integrate clinical evidence, data analytics, and human judgment.</p>
+            
+            <div class="areas-grid">
+                <div class="area-card">
+                    <h3>Clinical Decision Support Systems</h3>
+                    <p>AI-augmented platforms that integrate patient data, clinical evidence, and decision algorithms to enhance physician judgment and reduce diagnostic/therapeutic variability.</p>
+                </div>
+                <div class="area-card">
+                    <h3>Population Health Analytics</h3>
+                    <p>Enterprise-level data platforms for risk stratification, outcome tracking, and intervention optimization across patient populations and care networks.</p>
+                </div>
+                <div class="area-card">
+                    <h3>Care Management & Continuity</h3>
+                    <p>Integrated systems for patient monitoring, care coordination, and follow-up—connecting individual patients to healthcare teams and enabling continuous engagement.</p>
+                </div>
+                <div class="area-card">
+                    <h3>Healthcare Data Integration</h3>
+                    <p>Unified platforms that consolidate clinical, administrative, and behavioral data from multiple sources into actionable intelligence for clinicians and organizations.</p>
+                </div>
+                <div class="area-card">
+                    <h3>Outcomes & Performance Management</h3>
+                    <p>Real-time dashboards and reporting systems that track clinical outcomes, operational efficiency, and quality metrics—enabling data-driven healthcare management.</p>
+                </div>
+                <div class="area-card">
+                    <h3>Scalable Health Technology Infrastructure</h3>
+                    <p>Enterprise architecture and implementation services that enable healthcare organizations to deploy, integrate, and maintain intelligent health technology solutions.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Spanish Content -->
+        <div id="practice-es" class="lang-content hidden">
+            <h2>Qué Construimos</h2>
+            <p class="section-intro">Tecnología healthcare inteligente diseñada para adopción real. Desde usuarios individuales hasta sistemas enterprise de salud, plataformas que integran evidencia clínica, análisis de datos y criterio humano.</p>
+            
+            <div class="areas-grid">
+                <div class="area-card">
+                    <h3>Sistemas de Soporte de Decisión Clínica</h3>
+                    <p>Plataformas aumentadas por IA que integran datos del paciente, evidencia clínica y algoritmos de decisión para mejorar el criterio médico y reducir variabilidad.</p>
+                </div>
+                <div class="area-card">
+                    <h3>Analítica de Salud Poblacional</h3>
+                    <p>Plataformas de datos de nivel empresarial para estratificación de riesgo, seguimiento de resultados y optimización de intervenciones en poblaciones de pacientes.</p>
+                </div>
+                <div class="area-card">
+                    <h3>Gestión de Cuidado y Continuidad</h3>
+                    <p>Sistemas integrados para monitoreo de pacientes, coordinación de cuidados y seguimiento—conectando pacientes individuales a equipos sanitarios y permitiendo engagement continuo.</p>
+                </div>
+                <div class="area-card">
+                    <h3>Integración de Datos Healthcare</h3>
+                    <p>Plataformas unificadas que consolidan datos clínicos, administrativos y conductuales de múltiples fuentes en inteligencia accionable para clínicos y organizaciones.</p>
+                </div>
+                <div class="area-card">
+                    <h3>Gestión de Resultados y Desempeño</h3>
+                    <p>Dashboards en tiempo real y sistemas de reporte que rastrean resultados clínicos, eficiencia operativa y métricas de calidad—permitiendo gestión healthcare basada en datos.</p>
+                </div>
+                <div class="area-card">
+                    <h3>Infraestructura de Tecnología Healthcare Escalable</h3>
+                    <p>Arquitectura empresarial y servicios de implementación que permiten a organizaciones de salud desplegar, integrar y mantener soluciones de tecnología sanitaria inteligente.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== ECOSYSTEM SECTION ===== -->
+    <section class="ecosystem" id="ecosystem">
+        <!-- English Content -->
+        <div id="ecosystem-en" class="lang-content">
+            <h2>The Ecosystem</h2>
+            <p class="section-intro">An integrated system of clinical authority, therapeutic programs, and intelligent technology. All built from a single center of depth and expertise.</p>
+            
+            <div class="ecosystem-grid">
+                <div class="ecosystem-card" onclick="openModal('modal-doctor-en')">
+                    <div class="ecosystem-symbol">🏥</div>
+                    <h3>Dr. Alejandro Ortiz Obregón, M.D.</h3>
+                    <p class="descriptor">Clinical Authority & Intellectual Center</p>
+                    <p>The source of clinical criterion, medical expertise, and strategic vision for the entire ecosystem.</p>
+                    <button class="cta-secondary" style="border: none; cursor: pointer;">Learn More</button>
+                </div>
+
+                <div class="ecosystem-card" onclick="openModal('modal-metabolai-en')">
+                    <div class="ecosystem-symbol">🧠</div>
+                    <h3>MetabolAI</h3>
+                    <p class="descriptor">Intelligent Platform</p>
+                    <p>Applied intelligence to metabolism. Clinical criterion amplified by technology for precise metabolic support.</p>
+                    <button class="cta-secondary" style="border: none; cursor: pointer;">Explore</button>
+                </div>
+
+                <div class="ecosystem-card" onclick="openModal('modal-agent-en')">
+                    <div class="ecosystem-symbol">🤖</div>
+                    <h3>AI Response Agent</h3>
+                    <p class="descriptor">Automated Intelligence</p>
+                    <p>Intelligent automation for customer service, patient support, and operational efficiency.</p>
+                    <button class="cta-secondary" style="border: none; cursor: pointer;">Discover</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Spanish Content -->
+        <div id="ecosystem-es" class="lang-content hidden">
+            <h2>El Ecosistema</h2>
+            <p class="section-intro">Un sistema integrado de autoridad clínica, programas terapéuticos y tecnología inteligente. Todo construido desde un único centro de profundidad y expertise.</p>
+            
+            <div class="ecosystem-grid">
+                <div class="ecosystem-card" onclick="openModal('modal-doctor-es')">
+                    <div class="ecosystem-symbol">🏥</div>
+                    <h3>Dr. Alejandro Ortiz Obregón, M.D.</h3>
+                    <p class="descriptor">Autoridad Clínica & Centro Intelectual</p>
+                    <p>La fuente de criterio clínico, experiencia médica y visión estratégica de todo el ecosistema.</p>
+                    <button class="cta-secondary" style="border: none; cursor: pointer;">Saber Más</button>
+                </div>
+
+                <div class="ecosystem-card" onclick="openModal('modal-metabolai-es')">
+                    <div class="ecosystem-symbol">🧠</div>
+                    <h3>MetabolAI</h3>
+                    <p class="descriptor">Plataforma Inteligente</p>
+                    <p>Inteligencia aplicada al metabolismo. Criterio clínico amplificado por tecnología para apoyo metabólico preciso.</p>
+                    <button class="cta-secondary" style="border: none; cursor: pointer;">Explorar</button>
+                </div>
+
+                <div class="ecosystem-card" onclick="openModal('modal-agent-es')">
+                    <div class="ecosystem-symbol">🤖</div>
+                    <h3>Agente de IA</h3>
+                    <p class="descriptor">Inteligencia Automatizada</p>
+                    <p>Automatización inteligente para servicio al cliente, apoyo a pacientes y eficiencia operacional.</p>
+                    <button class="cta-secondary" style="border: none; cursor: pointer;">Descubrir</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== CREDIBILITY SECTION ===== -->
+    <section class="credibility">
+        <!-- English Content -->
+        <div id="credibility-en" class="lang-content">
+            <h2>Clinical Authority</h2>
+            <p class="section-intro">Decades of clinical practice, research, innovation, and measurable patient outcomes.</p>
+            
+            <div class="credential">
+                <h3>Extensive Clinical Experience</h3>
+                <p>Over 20 years of specialized medical practice in complex healthcare domains, with proven ability to translate clinical knowledge into scalable technology.</p>
+            </div>
+            
+            <div class="credential">
+                <h3>Research & Innovation</h3>
+                <p>Continuous exploration of new therapeutic approaches, clinical decision-making methodologies, and integration of evidence-based practices with technological innovation.</p>
+            </div>
+            
+            <div class="credential">
+                <h3>Technology Development</h3>
+                <p>Proven track record of designing, building, and implementing intelligent healthcare systems that drive measurable clinical and operational outcomes.</p>
+            </div>
+            
+            <div class="credential">
+                <h3>Enterprise Integration</h3>
+                <p>Experience working with healthcare organizations, clinical teams, and technology infrastructure to ensure successful adoption and impact at scale.</p>
+            </div>
+        </div>
+
+        <!-- Spanish Content -->
+        <div id="credibility-es" class="lang-content hidden">
+            <h2>Autoridad Clínica</h2>
+            <p class="section-intro">Décadas de práctica clínica, investigación, innovación y resultados medibles en pacientes.</p>
+            
+            <div class="credential">
+                <h3>Experiencia Clínica Extensa</h3>
+                <p>Más de 30 años de práctica médica especializada en dominios complejos de salud, con capacidad demostrada de traducir conocimiento clínico en tecnología escalable.</p>
+            </div>
+            
+            <div class="credential">
+                <h3>Investigación e Innovación</h3>
+                <p>Exploración continua de nuevos enfoques terapéuticos, metodologías de toma de decisiones clínicas e integración de prácticas basadas en evidencia con innovación tecnológica.</p>
+            </div>
+            
+            <div class="credential">
+                <h3>Desarrollo Tecnológico</h3>
+                <p>Trayectoria probada en diseño, construcción e implementación de sistemas healthcare inteligentes que generan resultados clínicos y operacionales medibles.</p>
+            </div>
+            
+            <div class="credential">
+                <h3>Integración Empresarial</h3>
+                <p>Experiencia trabajando con organizaciones de salud, equipos clínicos e infraestructura tecnológica para asegurar adopción exitosa e impacto a escala.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== CONTACT SECTION ===== -->
+    <section class="contact">
+        <!-- English Content -->
+        <div id="contact-en" class="lang-content">
+            <h2>Get In Touch</h2>
+            <div class="contact-content">
+                <p>Ready to explore how intelligent technology can advance metabolic medicine?</p>
+                
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <h3>Email</h3>
+                        <p><a href="mailto:info@aoo-llc.com">info@aoo-llc.com</a></p>
+                    </div>
+                    <div class="contact-item">
+                        <h3>Phone</h3>
+                        <p><a href="tel:+13072275115">+1 (307) 227-5115</a></p>
+                    </div>
+                    <div class="contact-item">
+                        <h3>Address</h3>
+                        <p>30 N Gould St, Ste N<br>Sheridan, Wyoming 82801<br>USA</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Spanish Content -->
+        <div id="contact-es" class="lang-content hidden">
+            <h2>Ponte en Contacto</h2>
+            <div class="contact-content">
+                <p>¿Listo para explorar cómo la tecnología inteligente puede avanzar la medicina metabólica?</p>
+                
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <h3>Email</h3>
+                        <p><a href="mailto:info@aoo-llc.com">info@aoo-llc.com</a></p>
+                    </div>
+                    <div class="contact-item">
+                        <h3>Teléfono</h3>
+                        <p><a href="tel:+13072275115">+1 (307) 227-5115</a></p>
+                    </div>
+                    <div class="contact-item">
+                        <h3>Dirección</h3>
+                        <p>30 N Gould St, Ste N<br>Sheridan, Wyoming 82801<br>USA</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== MODALS ===== -->
+
+    <!-- MODAL: Dr. Alejandro Ortiz Obregón (English) -->
+    <div id="modal-doctor-en" class="modal" onclick="closeModalOnBackdrop(event, 'modal-doctor-en')">
+        <div class="modal-content">
+            <button class="modal-close" onclick="closeModal('modal-doctor-en')">&times;</button>
+            <div class="modal-text">
+                <h2 class="modal-title">AOO MEDTECH LLC</h2>
+                <p class="modal-subtitle">Medicine, Technology and Intelligence Applied to Real Life</p>
+
+                <h3>THIRTY YEARS OF OBSERVATION</h3>
+                <p>Dr. Alejandro Ortiz Obregón is a physician specialized in metabolism and preventive medicine. But those 30 years were not just prescriptions. They were deep observation.</p>
+                <p>He observed patients who didn't improve because information was scattered. He saw processes repeated manually when they could be automated. He witnessed decisions made without data, when data existed. And one idea crystallized: modern medicine needs to integrate something that has always been there, but separate.</p>
+
+                <h3>WHEN THE VISION FOUND TECHNOLOGY</h3>
+                <p>Long before artificial intelligence became fashion, Dr. Ortiz was already imagining different systems. Systems that wouldn't replace the physician, but would enhance him. Tools capable of organizing complexity, revealing patterns, and enabling people to make better decisions.</p>
+                <p>Years passed. Technology matured. And he continued building, learning, asking himself: What does a solution look like when someone who truly understands what's needed in the clinic designs it?</p>
+
+                <h3>AOO MEDTECH LLC IS THE ANSWER</h3>
+                <p>It was not born from an algorithm. It was born from medical frustration converted into purpose. From the certainty that the future belongs not to those who use technology by fashion, but to those who know exactly what they'll use it for.</p>
+                <p>Today, Dr. Ortiz brings together two worlds: deep clinical experience with the ability to build real digital solutions. Physician, developer, entrepreneur. Someone who understands the problem from inside and has the tools to solve it.</p>
+
+                <h3>THE PURPOSE</h3>
+                <p>AOO MEDTECH LLC integrates medicine, data, and artificial intelligence to create solutions where technology amplifies human judgment. Practical solutions that help physicians, organizations, and people understand better, decide better, achieve better results.</p>
+                <p style="margin-top: 2rem; font-style: italic;">It is not technology for technology's sake.<br>It is medicine converted into solutions.<br>It is a physician's wait that finally arrived.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- MODAL: MetabolAI (English) -->
+    <div id="modal-metabolai-en" class="modal" onclick="closeModalOnBackdrop(event, 'modal-metabolai-en')">
+        <div class="modal-content">
+            <button class="modal-close" onclick="closeModal('modal-metabolai-en')">&times;</button>
+            <div class="modal-text">
+                <h2 class="modal-title">MetabolAI</h2>
+                <p class="modal-subtitle">Applied Intelligence to Metabolic Health</p>
+
+                <p>MetabolAI is an advanced software solution designed to support education, monitoring, and decision-making in metabolic health, control of cardiometabolic risk factors, and clinical bariatric medicine.</p>
+
+                <h3>FUNDAMENTAL PRINCIPLE</h3>
+                <p>Technology does not replace the physician or oversimplify patient complexity. It serves as an intelligent tool to organize information, interpret data, accompany processes, and strengthen clinical decisions with criterion, evidence, and human sense.</p>
+
+                <h3>FOR DIFFERENT USERS</h3>
+                <p><strong>For the general public:</strong> Clear, accessible, and responsible information about metabolism, body weight, insulin resistance, cardiometabolic risk, and bariatric medicine. It clarifies doubts and demystifies concepts confused with fad diets and quick promises.</p>
+                <p><strong>For the patient initiating or in process of change:</strong> Educational complement and accompaniment to medical advice. It reinforces recommendations, resolves daily questions, improves adherence, and maintains a more conscious relationship with metabolic health. Can generate menus following dietary recommendations from the treating physician or nutritionist.</p>
+                <p><strong>For the clinician:</strong> Clinical support tool that analyzes data, structures clinical information, identifies risk factors and patterns, and supports decision-making with updated scientific evidence. The treating professional, whether physician or nutritionist, remains the one who thinks, decides, and responds. MetabolAI organizes, accompanies, and amplifies.</p>
+
+                <h3>ARCHITECTURE AND DEVELOPMENT</h3>
+                <p>Result of years of conceptual design and algorithmic construction. Not a generic chatbot. It is software architecture designed from real clinical practice, with experience accumulated over decades treating patients with overweight, obesity, insulin resistance, type 2 diabetes, and cardiometabolic risk.</p>
+
+                <h3>HYBRID INTELLIGENCE</h3>
+                <p>Artificial intelligence provides speed, analysis, operative memory, and capacity for updating. Human intelligence provides criterion, ethics, experience, empathy, and understanding of context. Medicine needs both.</p>
+
+                <h3>SECURITY STANDARDS</h3>
+                <p>Designed with high standards of computer security, data protection, and operational reliability, aligned with international requirements. In health, innovation cannot be separate from responsibility.</p>
+
+                <h3>PURPOSE</h3>
+                <p>Put the patient at the center. Each function, flow, and analysis exists to improve understanding, facilitate monitoring, support the professional, and make medical decisions more timely, informed, and human.</p>
+                <p style="margin-top: 2rem; font-style: italic;">It is not artificial intelligence to replace medicine.<br>It is artificial intelligence to practice medicine better.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- MODAL: AI Response Agent (English) -->
+    <div id="modal-agent-en" class="modal" onclick="closeModalOnBackdrop(event, 'modal-agent-en')">
+        <div class="modal-content">
+            <button class="modal-close" onclick="closeModal('modal-agent-en')">&times;</button>
+            <div class="modal-text">
+                <h2 class="modal-title">AI Response Agent</h2>
+                <p class="modal-subtitle">Intelligent and Parameterized Service</p>
+
+                <p>An AI response agent is a solution designed to answer user questions, guide decisions, and facilitate communication between a business and the people seeking its services.</p>
+
+                <h3>PRIMARY CAPABILITY</h3>
+                <p>Simple but powerful: serve better, respond faster, and help the user move forward with clarity.</p>
+
+                <h3>MAIN FUNCTIONS</h3>
+                <p>Resolves frequent concerns about services, hours, availability, prices, characteristics, care conditions, location, prior preparation, and payment methods. Reviews service catalogs, explains differences between options, and guides the user to make informed decisions.</p>
+                <p>Also supports operational tasks: schedule appointments, modify or cancel appointments, resolve frequent questions, explain services, collect initial information, and guide toward concrete actions (appointment, purchase, evaluation, human contact).</p>
+
+                <h3>VALUE IN HEALTHCARE ENVIRONMENT</h3>
+                <p>A patient often doesn't know what service they need or what professional to consult. The agent orients that initial conversation, explains available options, helps select the most appropriate one, and facilitates scheduling.</p>
+                <p>This allows physicians, clinics, and centers to reduce administrative burden, decrease response times, and maintain more organized communication with patients.</p>
+
+                <h3>PERSONALIZED PARAMETERIZATION</h3>
+                <p>Not a generic template. Each agent is configured exclusively for each business, physician, or clinic with real information: services, hours, catalog, communication tone, commercial conditions, and internal protocols.</p>
+                <p>Artificial intelligence provides speed, availability, and consistency. Personalized parameterization provides precision, identity, and control.</p>
+
+                <h3>WHATSAPP BUSINESS INTEGRATION</h3>
+                <p>Ready-to-integrate version with WhatsApp Business, the channel where many commercial and healthcare conversations really occur. WhatsApp is the gateway, reception, first contact, and often the final decision point.</p>
+
+                <h3>REAL PURPOSE</h3>
+                <p>Does not seek to replace human attention when necessary. Seeks to free time, organize communication, and enable people to arrive better informed when they really need human intervention.</p>
+                <p style="margin-top: 2rem; font-style: italic;">Responding late costs. Responding poorly costs more. Not responding means losing an opportunity.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- MODAL: Dr. Alejandro Ortiz Obregón (Spanish) -->
+    <div id="modal-doctor-es" class="modal" onclick="closeModalOnBackdrop(event, 'modal-doctor-es')">
+        <div class="modal-content">
+            <button class="modal-close" onclick="closeModal('modal-doctor-es')">&times;</button>
+            <div class="modal-text">
+                <h2 class="modal-title">AOO MEDTECH LLC</h2>
+                <p class="modal-subtitle">Medicina, Tecnología e Inteligencia Aplicada a la Vida Real</p>
+
+                <h3>TREINTA AÑOS OBSERVANDO</h3>
+                <p>El Dr. Alejandro Ortiz Obregón es médico especializado en metabolismo y medicina preventiva. Pero esos 30 años no fueron solo recetas. Fueron observación profunda.</p>
+                <p>Observó pacientes que no mejoraban porque la información estaba dispersa. Vio procesos que se repetían manualmente cuando podrían automatizarse. Presenció decisiones tomadas sin datos, cuando los datos existían. Y una idea cristalizó: la medicina moderna necesita integrar algo que siempre estuvo ahí, pero separado.</p>
+
+                <h3>CUANDO LA VISIÓN ENCONTRÓ LA TECNOLOGÍA</h3>
+                <p>Mucho antes de que la inteligencia artificial fuera moda, el Dr. Ortiz ya imaginaba sistemas diferentes. Sistemas que no reemplazaran al médico, sino que lo potenciaran. Herramientas capaces de organizar complejidad, revelar patrones y permitir que las personas tomen mejores decisiones.</p>
+                <p>Pasaron años. La tecnología maduraba. Y él seguía construyendo, aprendiendo, preguntándose: ¿Cómo se ve una solución cuando la diseña alguien que realmente entiende qué hace falta en la clínica?</p>
+
+                <h3>AOO MEDTECH LLC ES LA RESPUESTA</h3>
+                <p>No nació de un algoritmo. Nació de una frustración médica convertida en propósito. De la certeza de que el futuro no pertenece a quien usa tecnología por moda, sino a quien sabe exactamente para qué usarla.</p>
+                <p>Hoy, el Dr. Ortiz une dos mundos: la experiencia clínica profunda con la capacidad de construir soluciones digitales reales. Médico, desarrollador, empresario. Alguien que entiende el problema desde adentro y tiene las herramientas para resolverlo.</p>
+
+                <h3>EL PROPÓSITO</h3>
+                <p>AOO MEDTECH LLC integra medicina, datos e inteligencia artificial para crear soluciones donde la tecnología amplifica el criterio humano. Soluciones prácticas que ayudan a médicos, organizaciones y personas a entender mejor, decidir mejor, lograr mejores resultados.</p>
+                <p style="margin-top: 2rem; font-style: italic;">No es tecnología por tecnología.<br>Es medicina convertida en soluciones.<br>Es la espera de un médico que finalmente llegó.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- MODAL: MetabolAI (Spanish) -->
+    <div id="modal-metabolai-es" class="modal" onclick="closeModalOnBackdrop(event, 'modal-metabolai-es')">
+        <div class="modal-content">
+            <button class="modal-close" onclick="closeModal('modal-metabolai-es')">&times;</button>
+            <div class="modal-text">
+                <h2 class="modal-title">MetabolAI</h2>
+                <p class="modal-subtitle">Inteligencia Aplicada a la Salud Metabólica</p>
+
+                <p>MetabolAI es una solución informática avanzada diseñada para apoyar la educación, seguimiento y toma de decisiones en salud metabólica, control de factores de riesgo cardiometabólico y medicina bariátrica clínica.</p>
+
+                <h3>PRINCIPIO FUNDAMENTAL</h3>
+                <p>La tecnología no reemplaza al médico ni simplifica en exceso la complejidad del paciente. Sirve como herramienta inteligente para ordenar información, interpretar datos, acompañar procesos y fortalecer decisiones clínicas con criterio, evidencia y sentido humano.</p>
+
+                <h3>PARA DIFERENTES USUARIOS</h3>
+                <p><strong>Para la persona común:</strong> Información clara, accesible y responsable sobre metabolismo, peso corporal, resistencia a la insulina, riesgo cardiometabólico y medicina bariátrica. Aclara dudas y desmitifica conceptos confundidos con dietas de moda y promesas rápidas.</p>
+                <p><strong>Para el paciente iniciando o en proceso de cambio:</strong> Complemento educativo y de acompañamiento al consejo médico. Refuerza indicaciones, resuelve preguntas cotidianas, mejora adherencia y mantiene una relación más consciente con la salud metabólica. Puede generar menús siguiendo las recomendaciones dietarias del médico o nutricionista tratante.</p>
+                <p><strong>Para el clínico:</strong> Herramienta de apoyo asistencial que analiza datos, estructura información clínica, identifica factores y patrones de riesgo, soporta toma de decisiones con evidencia científica actualizada. El profesional tratante, bien sea médico o nutricionista, sigue siendo quien piensa, decide y responde. MetabolAI organiza, acompaña y amplifica.</p>
+
+                <h3>ARQUITECTURA Y DESARROLLO</h3>
+                <p>Resultado de años de diseño conceptual y construcción algorítmica. No es un chatbot genérico. Es arquitectura informática pensada desde la práctica clínica real, con experiencia acumulada de décadas atendiendo pacientes con sobrepeso, obesidad, resistencia a la insulina, diabetes tipo 2 y riesgo cardiometabólico.</p>
+
+                <h3>INTELIGENCIA HÍBRIDA</h3>
+                <p>La inteligencia artificial aporta velocidad, análisis, memoria operativa y capacidad de actualización. La inteligencia humana aporta criterio, ética, experiencia, empatía y comprensión del contexto. La medicina necesita ambas.</p>
+
+                <h3>ESTÁNDARES DE SEGURIDAD</h3>
+                <p>Diseñado con altos estándares de seguridad informática, protección de datos y confiabilidad operativa, alineado con exigencias internacionales. En salud, la innovación no puede ir separada de la responsabilidad.</p>
+
+                <h3>PROPÓSITO</h3>
+                <p>Poner al paciente en el centro. Cada función, flujo y análisis existe para mejorar comprensión, facilitar seguimiento, apoyar al profesional y hacer que las decisiones médicas sean más oportunas, informadas y humanas.</p>
+                <p style="margin-top: 2rem; font-style: italic;">No es inteligencia artificial para reemplazar la medicina.<br>Es inteligencia artificial para ejercer mejor la medicina.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- MODAL: Agente de IA (Spanish) -->
+    <div id="modal-agent-es" class="modal" onclick="closeModalOnBackdrop(event, 'modal-agent-es')">
+        <div class="modal-content">
+            <button class="modal-close" onclick="closeModal('modal-agent-es')">&times;</button>
+            <div class="modal-text">
+                <h2 class="modal-title">Agente de IA de Respuesta Automática</h2>
+                <p class="modal-subtitle">Atención Inteligente y Parametrizada</p>
+
+                <p>Un agente de IA de respuesta automática es una solución diseñada para responder preguntas de usuarios, orientar decisiones y facilitar la comunicación entre un negocio y las personas que buscan sus servicios.</p>
+
+                <h3>CAPACIDAD PRINCIPAL</h3>
+                <p>Simple pero poderosa: atender mejor, responder más rápido y ayudar al usuario a avanzar con claridad.</p>
+
+                <h3>FUNCIONES PRINCIPALES</h3>
+                <p>Resuelve inquietudes frecuentes sobre servicios, horarios, disponibilidad, precios, características, condiciones de atención, ubicación, preparación previa y formas de pago. Revisa catálogos, explica diferencias entre opciones y guía al usuario para tomar decisiones informadas.</p>
+                <p>También acompaña tareas operativas: agendar citas, modificar o cancelar programaciones, resolver preguntas frecuentes, explicar servicios, recopilar información inicial y orientar hacia acciones concretas (cita, compra, evaluación, contacto humano).</p>
+
+                <h3>VALOR EN AMBIENTE SANITARIO</h3>
+                <p>Un paciente muchas veces no sabe qué servicio necesita o qué profesional consultar. El agente orienta esa conversación inicial, explica opciones disponibles, ayuda a seleccionar la más adecuada y facilita agendamiento.</p>
+                <p>Esto permite que médicos, clínicas y centros reduzcan carga administrativa, disminuyan tiempos de respuesta y mantengan comunicación más ordenada con pacientes.</p>
+
+                <h3>PARAMETRIZACIÓN PERSONALIZADA</h3>
+                <p>No es plantilla genérica. Cada agente se configura exclusivamente para cada negocio, médico o clínica con información real: servicios, horarios, catálogo, tono de comunicación, condiciones comerciales y protocolos internos.</p>
+                <p>La inteligencia artificial aporta velocidad, disponibilidad y consistencia. La parametrización personalizada aporta precisión, identidad y control.</p>
+
+                <h3>INTEGRACIÓN CON WHATSAPP BUSINESS</h3>
+                <p>Versión lista para integración con WhatsApp Business, el canal donde muchas conversaciones comerciales y sanitarias realmente ocurren. WhatsApp es la puerta de entrada, recepción, primer contacto y, muchas veces, la decisión final.</p>
+
+                <h3>PROPÓSITO REAL</h3>
+                <p>No busca reemplazar la atención humana cuando es necesaria. Busca liberar tiempo, ordenar la comunicación y permitir que las personas lleguen mejor informadas al momento en que realmente necesitan intervención humana.</p>
+                <p style="margin-top: 2rem; font-style: italic;">Responder tarde cuesta. Responder mal cuesta más. Y no responder significa perder una oportunidad.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- ===== FOOTER ===== -->
+    <footer>
+        <!-- English Content -->
+        <div id="footer-en" class="lang-content">
+            <p>&copy; 2026 AOO MEDTECH LLC. All rights reserved. | <a href="https://aoo-llc.com">AOO MEDTECH LLC</a> | Privacy & Terms</p>
+        </div>
+
+        <!-- Spanish Content -->
+        <div id="footer-es" class="lang-content hidden">
+            <p>&copy; 2026 AOO MEDTECH LLC. Todos los derechos reservados. | <a href="https://aoo-llc.com">AOO MEDTECH LLC</a> | Privacidad y Términos</p>
+        </div>
+    </footer>
+
+    <!-- ===== LANGUAGE TOGGLE & MODAL SCRIPT ===== -->
+    <script>
+        // ===== LANGUAGE TOGGLE =====
+        function getPreferredLanguage() {
+            const saved = localStorage.getItem('preferred-language');
+            if (saved) return saved;
+            const browserLang = navigator.language || navigator.userLanguage;
+            if (browserLang.startsWith('es')) return 'es';
+            return 'en';
+        }
+
+        function setLanguage(lang) {
+            localStorage.setItem('preferred-language', lang);
+            document.querySelectorAll('.lang-content').forEach(el => {
+                el.classList.add('hidden');
+            });
+            document.querySelectorAll(`[id$="-${lang}"]`).forEach(el => {
+                el.classList.remove('hidden');
+            });
+            document.querySelectorAll('.lang-btn').forEach(btn => {
+                btn.classList.remove('active');
+                if (btn.dataset.lang === lang) {
+                    btn.classList.add('active');
+                }
+            });
+            document.documentElement.lang = lang;
+            document.querySelectorAll(`.lang-content:not(.hidden)`).forEach(el => {
+                el.classList.add('fade-in');
+            });
+        }
+
+        document.addEventListener('DOMContentLoaded', function() {
+            const preferredLang = getPreferredLanguage();
+            setLanguage(preferredLang);
+        });
+
+        // ===== MODAL FUNCTIONS =====
+        function openModal(modalId) {
+            const modal = document.getElementById(modalId);
+            if (modal) {
+                modal.classList.add('show');
+                document.body.style.overflow = 'hidden';
+            }
+        }
+
+        function closeModal(modalId) {
+            const modal = document.getElementById(modalId);
+            if (modal) {
+                modal.classList.remove('show');
+                document.body.style.overflow = 'auto';
+            }
+        }
+
+        function closeModalOnBackdrop(event, modalId) {
+            if (event.target.id === modalId) {
+                closeModal(modalId);
+            }
+        }
+
+        // Close modal when pressing Escape key
+        document.addEventListener('keydown', function(event) {
+            if (event.key === 'Escape') {
+                document.querySelectorAll('.modal.show').forEach(modal => {
+                    modal.classList.remove('show');
+                });
+                document.body.style.overflow = 'auto';
+            }
+        });
+    </script>
+</body>
+</html>
